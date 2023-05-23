@@ -1,4 +1,7 @@
 {% load static %}
+{% load custom_tags %}
+{% load custom_filters %}
+
 
 <link rel="stylesheet" href="{% static 'Dashboard/style.css' %}">
 
@@ -24,8 +27,8 @@
     <div id="sideMenuOuter">
       <div id="sideMenuWrap">
         <ul>
-          <li><a href="/Dashboard/Observations">Observations</a></li>
-          <li><a href="/Dashboard/Species">Species</a></li>
+          <li><a href="/Dashboard/">Observations</a></li>
+          <li><a href="/Dashboard/species">Species</a></li>
         </ul>
       </div>
     </div>
@@ -37,25 +40,27 @@
             <table>
               <thead>
                 <tr>
-                  <th>Sepal Length</th>
-                  <th>Sepal Width</th>
-                  <th>Petal Length</th>
-                  <th>Petal Width</th>
+                  {% for field in model_fields %}
+                    {% if not "row id" in field.verbose_name %}
+                      <th>{{ field.verbose_name }}</th>
+                    {% endif %}
+                  {% endfor %}
                 </tr>
               </thead>
                     
-                {% for observation in observation_list %}
-                    <tr>
-                        <td>{{ observation.sepal_length }}</td>
-                        <td>{{ observation.sepal_width }}</td>
-                        <td>{{ observation.petal_length }}</td>
-                        <td>{{ observation.petal_width }}</td>
-                    </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="4">No observations yet.</td>
-                </tr>
+              {% for observation in observation_list %}
+              <tr>
+                {% for field_name in model_field_names %}
+                  {% if not "row_id" in field_name %}
+                    <td>{{ observation|getattr_filter:field_name }}</td>
+                  {% endif %}
                 {% endfor %}
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="{{ observation_list.0|length }}">No observations available.</td>
+              </tr>
+            {% endfor %}
             </table>
           </div>
         </div>
