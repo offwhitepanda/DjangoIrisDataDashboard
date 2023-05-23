@@ -1,0 +1,69 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'Dashboard/style.css' %}">
+
+<div id="pageHolderDiv">
+  
+  <div id="headerOuter">
+    <div id="headerIconHome">
+      <h3><a href="">Iris Data Display</a></h3>
+    </div>
+    <div id="headerMenu">
+      <ul>
+        <li><a href="/Dashboard">Dashboard</a></li>
+        <li><a href="/admin">Admin</a></li>
+      </ul>
+    </div>
+    <div id="headerPadding">
+      <button type="submit">Logout</button>
+    </div>
+  </div>
+
+  <div id="pageContentDiv">
+
+    <div id="sideMenuOuter">
+      <div id="sideMenuWrap">
+        <ul>
+          <li><a href="/Dashboard/Observations">Observations</a></li>
+          <li><a href="/Dashboard/Species">Species</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id = "greaterOuter">
+      <div id= "quarterOneGrid">
+        <div id = "observationOuter">
+          <div id = "observationHeaderWrap">
+            <h1>Observations</h1>
+          </div>
+          <div id = "observationTableWrap">
+            <table>
+                    <tr>
+                        <td>Sepal Length</td>
+                        <td>Sepal Width</td>
+                        <td>Petal Length</td>
+                        <td>Petal Width</td>
+                    </tr>
+                {% for observation in observation_list %}
+                    <tr>
+                        <td>{{ observation.sepal_length }}</td>
+                        <td>{{ observation.sepal_width }}</td>
+                        <td>{{ observation.petal_length }}</td>
+                        <td>{{ observation.petal_width }}</td>
+                    </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No observations yet.</td>
+                </tr>
+                {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="quarterTwoGrid"></div>
+      <div id="quarterThreeGrid"></div>
+      <div id="quarterFourGrid"></div>
+    </div>
+  </div>
+
+</div>

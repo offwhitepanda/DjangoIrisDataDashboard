@@ -1,0 +1,139 @@
+body {
+    background-color: #40513B;
+    color: black;
+    font-family: 'Source Code Pro', monospace;
+}
+
+div {
+    background-color: #9DC08B;
+    border-color: #EDF1D6;
+}
+
+h1 {
+    /*
+    color: #333333;
+    */
+}
+
+a {
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+li {
+    color: #999999;
+}
+
+#headerOuter {
+    display: grid;
+    grid-template-columns: 10% 65% 25%; /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(1, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: .25%;
+    margin-right: 1%;
+  }
+
+#headerOuter a {
+    text-decoration: none;
+}
+
+#headerMenu {
+    padding-left: 1%;
+    padding-top: .5%;
+}
+
+#headerMenu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #headerMenu li {
+    display: inline-block;
+    margin-right: 10px; /* Optional: Adjust the spacing between items */
+  }
+
+
+#headerPadding {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+
+#headerPadding button {
+    
+}
+
+#pageContentDiv {
+    display: grid;
+    grid-template-columns: 10% 90%; /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(1, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+
+}
+
+#sideMenuOuter{
+    padding-left: .25%;
+    min-width: 10%;
+}
+
+#sideMenuWrap{
+    padding-left: 1%;
+}
+
+#greaterOuter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(2, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    padding-right: 1%;
+    padding-bottom: 1%;
+    margin-right: 1%;
+  }
+  
+  #quarterOneGrid,
+  #quarterTwoGrid,
+  #quarterThreeGrid,
+  #quarterFourGrid {
+    border-radius: 10px;
+    border: 2px solid; /* Add borders or adjust styling as needed */
+    padding: 1%;
+  }
+
+  #observationHeaderWrap{
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #observationTableWrap{
+    display: flex;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
