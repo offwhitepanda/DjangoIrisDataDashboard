@@ -35,12 +35,15 @@
         <div id = "observationOuter">
           <div id = "observationTableWrap">
             <table>
-                    <tr>
-                        <td>Sepal Length</td>
-                        <td>Sepal Width</td>
-                        <td>Petal Length</td>
-                        <td>Petal Width</td>
-                    </tr>
+              <thead>
+                <tr>
+                  <th>Sepal Length</th>
+                  <th>Sepal Width</th>
+                  <th>Petal Length</th>
+                  <th>Petal Width</th>
+                </tr>
+              </thead>
+                    
                 {% for observation in observation_list %}
                     <tr>
                         <td>{{ observation.sepal_length }}</td>
@@ -59,15 +62,41 @@
       </div>
       <div id="quarterTwoGrid">
         <div id="graphTable1">
+          {% if not graph_data_list1 %}
+            <h3>No Graph To Display!</h3>
+          {% endif %}
           {% for graph_data in graph_data_list %}
           <div>
             {{ graph_data|safe }}
           </div>
           {% endfor %}
+        </div>
       </div>
+      <div id="quarterThreeGrid">
+        <div id="graphTable2">
+          {% if not graph_data_list2 %}
+            <h3>No Graph To Display!</h3>
+          {% endif %}
+          {% for graph_data in graph_data_list2 %}
+          <div>
+            {{ graph_data|safe }}
+          </div>
+          {% endfor %}
+        </div>
       </div>
-      <div id="quarterThreeGrid"></div>
-      <div id="quarterFourGrid"></div>
+        
+      <div id="quarterFourGrid">
+        <div id="graphTable3">
+          {% if not graph_data_list3 %}
+            <h3>No Graph To Display!</h3>
+          {% endif %}
+          {% for graph_data in graph_data_list3 %}
+          <div>
+            {{ graph_data|safe }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 
