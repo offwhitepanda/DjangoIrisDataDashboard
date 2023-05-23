@@ -33,9 +33,6 @@
     <div id = "greaterOuter">
       <div id= "quarterOneGrid">
         <div id = "observationOuter">
-          <div id = "observationHeaderWrap">
-            <h1>Observations</h1>
-          </div>
           <div id = "observationTableWrap">
             <table>
                     <tr>
@@ -60,7 +57,15 @@
           </div>
         </div>
       </div>
-      <div id="quarterTwoGrid"></div>
+      <div id="quarterTwoGrid">
+        <div id="graphTable1">
+          {% for graph_data in graph_data_list %}
+          <div>
+            {{ graph_data|safe }}
+          </div>
+          {% endfor %}
+      </div>
+      </div>
       <div id="quarterThreeGrid"></div>
       <div id="quarterFourGrid"></div>
     </div>
