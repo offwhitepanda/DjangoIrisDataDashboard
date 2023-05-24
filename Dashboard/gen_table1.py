@@ -1,5 +1,6 @@
 import matplotlib
 import matplotlib.pyplot as plt
+import seaborn as sns
 import io
 import base64
 import numpy as np

@@ -15,6 +15,7 @@ from .models import Observation,Species
 
 from .gen_table1 import generate_graph_data_table1
 from .gen_table2 import generate_graph_data_table2
+from .gen_table3 import generate_graph_data_table3
 
 matplotlib.use('Agg')  # Specify non-GUI backend
 
@@ -51,9 +52,13 @@ class index(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        model = index.get_model(self)
+        model_fields = model._meta.get_fields()
+
         # Generate the graph data for multiple tables
         graph_data_list = []
         graph_data_list2 = []
+        graph_data_list3 = []
 
         # Generate the graph data for Table 1
         graph_data_table1 = generate_graph_data_table1()
@@ -63,8 +68,9 @@ class index(generic.ListView):
         graph_data_table2 = generate_graph_data_table2()
         graph_data_list2.append(graph_data_table2)
 
-        model = index.get_model(self)
-        model_fields = model._meta.get_fields()
+        # Generate the graph data for Table 3
+        graph_data_table3 = generate_graph_data_table3(model)
+        graph_data_list3.append(graph_data_table3)
 
         print("Model: " + str(model))
         model_name = str(model).replace('<class \'Dashboard.models.','').replace('\'>','')
@@ -81,6 +87,7 @@ class index(generic.ListView):
         context['model_field_names'] = model_field_names
         context['graph_data_list'] = graph_data_list
         context['graph_data_list2'] = graph_data_list2
+        context['graph_data_list3'] = graph_data_list3
 
         return context
 
