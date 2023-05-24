@@ -1,15 +1,5 @@
-import matplotlib
-import matplotlib.pyplot as plt
-import io
-import base64
-import numpy as np
-
-from django.core.files.base import ContentFile
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views import generic
-
-from .models import Observation,Species
+import json
+from .models import Observation
 
 def generate_graph_data_table2():
     # Fetch the relevant data from the Observation table
@@ -17,33 +7,10 @@ def generate_graph_data_table2():
     sepal_length = [observation.sepal_length for observation in observations]
     petal_length = [observation.petal_length for observation in observations]
 
-    # Perform polynomial regression
-    coeffs = np.polyfit(sepal_length, petal_length, deg=1)
-    trend_line = np.poly1d(coeffs)
+    # Combine the data into a list of objects
+    data = [{'sepal_length': sl, 'petal_length': pl} for sl, pl in zip(sepal_length, petal_length)]
 
-    # Generate data points for the trend line
-    x = np.linspace(min(sepal_length), max(sepal_length), num=100)
-    y = trend_line(x)
+    # Prepare the data for d3.js
+    data_json = json.dumps(data)
 
-    # Create the line graph with trend line
-    plt.plot(sepal_length, petal_length, 'o', label='Data')
-    plt.plot(x, y, label='Trend Line')
-    plt.xlabel('Sepal Length')
-    plt.ylabel('Petal Length')
-    plt.title('Line Graph with Trend Line: Sepal Length vs Petal Length')
-    plt.legend()
-
-    # Save the graph to a BytesIO object
-    buffer = io.BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-
-    # Convert the graph to a base64-encoded string
-    image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
-
-    # Generate the HTML string
-    graph_data = f'<img src="data:image/png;base64,{image_base64}">'
-
-    plt.close()  # Close the figure to release resources
-
-    return graph_data
+    return data_json

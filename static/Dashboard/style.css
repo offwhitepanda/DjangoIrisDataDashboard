@@ -1,0 +1,217 @@
+body {
+    background-color: #40513B;
+    color: black;
+    font-family: 'Source Code Pro', monospace;
+}
+
+div {
+    background-color: #9DC08B;
+    border-color: #EDF1D6;
+}
+
+h1 {
+    /*
+    color: #333333;
+    */
+}
+
+a {
+    color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+li {
+    color: #999999;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+#pageHolderDiv {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#headerOuter {
+    display: grid;
+    grid-template-columns: 10% 65% 25%; /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(1, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: .25%;
+    margin-right: 1%;
+  }
+
+#headerOuter a {
+    text-decoration: none;
+}
+
+#headerMenu {
+    padding-left: 1%;
+    padding-top: .5%;
+}
+
+#headerMenu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #headerMenu li {
+    display: inline-block;
+    margin-right: 10px; /* Optional: Adjust the spacing between items */
+  }
+
+
+#headerPadding {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+
+#headerPadding button {
+    
+}
+
+#pageContentDiv {
+    display: grid;
+    grid-template-columns: 15% 85%; /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(1, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    min-height:90%;
+    min-width: 100%;
+
+}
+
+#sideMenuOuter{
+    padding-left: .25%;
+}
+
+#sideMenuWrap{
+    padding-left: 1%;
+}
+
+#greaterOuter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(2, 1fr); /* Adjust the number of rows as needed */
+    gap: 10px; /* Adjust the gap between grid items as needed */
+    padding-right: 1%;
+    padding-bottom: 1%;
+    margin-right: 1%;
+    max-width: 100%;
+  }
+  
+  #quarterOneGrid,
+  #quarterTwoGrid,
+  #quarterThreeGrid,
+  #quarterFourGrid {
+    border-radius: 10px;
+    border: 2px solid; /* Add borders or adjust styling as needed */
+    padding: 1%;
+  }
+
+  #observationOuter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    min-height: 95%;
+    height: 95%;
+    width: 95%;
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
+
+  #observationTableWrap {
+    position: absolute;
+    text-align: center;
+    min-height: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+  }
+  
+  #observationTableWrap table {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-45%,0%);
+    vertical-align: middle;
+    max-width: 80%;
+    max-height: 100%;
+    height: 100%;
+    width: 80%;
+    table-layout: fixed;
+    overflow: scroll;
+    
+  }
+
+  #observationTableWrap thead {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2; /* Optional styling */
+    z-index: 1; /* Ensure header stays on top */
+  }
+
+  #graphTable1,#graphTable2, #graphTable3 {
+    position: relative; /* Add position relative to the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    height: 95%;
+  }
+  
+  #graphTable1 img, #graphTable2 img, #graphTable3 img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
